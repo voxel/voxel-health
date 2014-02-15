@@ -1,0 +1,6 @@
+# voxel-health
+
+## License
+
+MIT
+
