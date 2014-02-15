@@ -47,4 +47,7 @@ Health.prototype.scaledValue = function() {
   return this.value / this.maxHealth;
 };
 
+Health.prototype.percentage = function() {
+  return this.scaledValue() * 100.0;
+};
 
