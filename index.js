@@ -43,3 +43,8 @@ Health.prototype.heal = function(amount) {
   this.emit('heal', this.amount);
 };
 
+Health.prototype.scaledValue = function() {
+  return this.value / this.maxHealth;
+};
+
+
