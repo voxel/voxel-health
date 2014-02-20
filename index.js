@@ -24,12 +24,16 @@ Health.prototype.hurt = function(amount) {
   if (this.value < this.minHealth) 
     this.value = this.minHealth;
 
+  var effectiveAmount = this.value - oldValue;
+
   this.emit('health', this.value, oldValue);
-  this.emit('hurt', this.amount);
+  this.emit('hurt', effectiveAmount, amount, this.value, oldValue);
 
   if (this.value === this.minHealth) {
     this.emit('die');
   }
+
+  return effectiveAmount;
 };
 
 Health.prototype.heal = function(amount) {
@@ -39,8 +43,12 @@ Health.prototype.heal = function(amount) {
   if (this.value > this.maxHealth)
     this.value = this.maxHealth;
 
+  var effectiveAmount = oldValue - this.value;
+
   this.emit('health', this.value, oldValue);
-  this.emit('heal', this.amount);
+  this.emit('heal', effectiveAmount, amount, this.value, oldValue);
+
+  return effectiveAmount;
 };
 
 Health.prototype.scaledValue = function() {
