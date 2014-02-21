@@ -18,6 +18,8 @@ function Health(game, opts) {
 inherits(Health, EventEmitter);
 
 Health.prototype.hurt = function(amount) {
+  if (amount < 0) return this.heal(-amount);
+
   var oldValue = this.value;
   
   this.value -= amount;
@@ -37,6 +39,8 @@ Health.prototype.hurt = function(amount) {
 };
 
 Health.prototype.heal = function(amount) {
+  if (amount < 0) return this.hurt(-amount);
+
   var oldValue = this.value;
 
   this.value += amount;
