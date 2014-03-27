@@ -7,12 +7,20 @@ module.exports = function(game, opts) {
   return new Health(game, opts);
 };
 
+module.exports.pluginInfo = {
+  loadAfter: ['voxel-commands']
+};
+
 function Health(game, opts) {
   this.maxHealth = opts.maxHealth || 10;
   this.minHealth = opts.minHealth || 0;
   this.startHealth = opts.startHealth || this.maxHealth;
 
   this.value = this.startHealth;
+
+  if (game.plugins.isEnabled('voxel-commands')) {
+    game.plugins.get('voxel-commands').registerCommand('heal', this.heal.bind(this, this.maxHealth), '', 'sets health to maximum');
+  }
 }
 
 inherits(Health, EventEmitter);
