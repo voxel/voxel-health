@@ -38,11 +38,10 @@ Health.prototype.disable = function() {
 };
 
 Health.prototype.hurt = function(amount) {
-  if (!Number.isFinite(amount)) throw new Error('voxel-health hurt('+amount+') called with non-finite amount');
   if (amount < 0) return this.heal(-amount);
-
-  var oldValue = this.value;
+  if (amount !== Infinity && !Number.isFinite(amount)) throw new Error('voxel-health hurt('+amount+') called with non-finite amount');
   
+  var oldValue = this.value;
   this.value -= amount;
   if (this.value < this.minHealth) 
     this.value = this.minHealth;
@@ -60,8 +59,8 @@ Health.prototype.hurt = function(amount) {
 };
 
 Health.prototype.heal = function(amount) {
-  if (!Number.isFinite(amount)) throw new Error('voxel-health heal('+amount+') called with non-finite amount');
   if (amount < 0) return this.hurt(-amount);
+  if (amount !== Infinity && !Number.isFinite(amount)) throw new Error('voxel-health heal('+amount+') called with non-finite amount');
 
   var oldValue = this.value;
 

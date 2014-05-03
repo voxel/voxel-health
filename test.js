@@ -105,3 +105,22 @@ test('bad health', function(t) {
 
   t.end();
 });
+
+test('infinite health', function(t) {
+  var p = HealthPlugin(new FakeGame(), {maxHealth: 20});
+
+  p.hurt(10);
+  p.heal(Infinity);
+  t.equal(p.value, 20);
+
+  p.heal(-Infinity);
+  t.equal(p.value, 0);
+
+  p.hurt(-Infinity);
+  t.equal(p.value, 20);
+
+  p.heal(-Infinity)
+  t.equal(p.value, 0);
+
+  t.end();
+});
