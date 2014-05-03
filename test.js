@@ -94,6 +94,13 @@ test('bad health', function(t) {
     p.hurt('abc');
   });
 
+  t.throws(function() {
+    p.heal(NaN);
+  });
+
+  t.throws(function() {
+    p.hurt(NaN);
+  });
 
 
   t.end();
