@@ -2,6 +2,7 @@
   "name": "voxel-health",
   "description": "store player health (voxel.js plugin)",
   "version": "0.0.1",
+  "main": "health.js",
   "repository": {
     "type": "git",
     "url": "git@github.com:deathcap/voxel-health.git"
