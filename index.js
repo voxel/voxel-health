@@ -26,13 +26,13 @@ function Health(game, opts) {
 inherits(Health, EventEmitter);
 
 Health.prototype.enable = function() {
-  if (this.game.plugins.isEnabled('voxel-commands')) {
+  if (this.game.plugins && this.game.plugins.isEnabled('voxel-commands')) {
     this.game.plugins.get('voxel-commands').registerCommand('heal', this.onHeal = this.heal.bind(this, this.maxHealth), '', 'sets health to maximum');
   }
 };
 
 Health.prototype.disable = function() {
-  if (this.game.plugins.isEnabled('voxel-commands')) {
+  if (this.game.plugins && this.game.plugins.isEnabled('voxel-commands')) {
     this.game.plugins.get('voxel-commands').unregisterCommand('heal', this.onHeal);
   }
 };
