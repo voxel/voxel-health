@@ -2,6 +2,8 @@
 
 Stores player health value (voxel.js plugin)
 
+[![Build Status](https://travis-ci.org/deathcap/voxel-health.png)](https://travis-ci.org/deathcap/voxel-health)
+
 (for UI, see also [voxel-health-bar](https://github.com/deathcap/voxel-health-bar))
 
 ## Usage
