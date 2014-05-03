@@ -38,6 +38,7 @@ Health.prototype.disable = function() {
 };
 
 Health.prototype.hurt = function(amount) {
+  if (typeof amount !== 'number') throw new Error('voxel-health hurt('+amount+') called without number');
   if (amount < 0) return this.heal(-amount);
 
   var oldValue = this.value;
@@ -59,6 +60,7 @@ Health.prototype.hurt = function(amount) {
 };
 
 Health.prototype.heal = function(amount) {
+  if (typeof amount !== 'number') throw new Error('voxel-health heal('+amount+') called without number');
   if (amount < 0) return this.hurt(-amount);
 
   var oldValue = this.value;

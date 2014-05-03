@@ -74,3 +74,27 @@ test('max health', function(t) {
 
   t.end();
 });
+
+test('bad health', function(t) {
+  var p = HealthPlugin(new FakeGame(), {maxHealth: 20});
+
+  t.throws(function() {
+    p.heal(undefined);
+  });
+
+  t.throws(function() {
+    p.hurt(undefined);
+  });
+
+  t.throws(function() {
+    p.heal('abc');
+  });
+
+  t.throws(function() {
+    p.hurt('abc');
+  });
+
+
+
+  t.end();
+});
