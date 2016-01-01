@@ -2,13 +2,13 @@
 
 Stores player health value (voxel.js plugin)
 
-[![Build Status](https://travis-ci.org/deathcap/voxel-health.png)](https://travis-ci.org/deathcap/voxel-health)
+[![Build Status](https://travis-ci.org/voxel/voxel-health.png)](https://travis-ci.org/voxel/voxel-health)
 
-(for UI, see also [voxel-health-bar](https://github.com/deathcap/voxel-health-bar))
+(for UI, see also [voxel-health-bar](https://github.com/voxel/voxel-health-bar))
 
 ## Usage
 
-Load with [voxel-plugins](https://github.com/deathcap/voxel-plugins), options:
+Load with [voxel-plugins](https://github.com/voxel/voxel-plugins), options:
 
 * `maxHealth` (10), `minHealth` (0): valid health value range, outside will be clamped
 * `startHealth` (defaults to maxHealth): initial starting health value
